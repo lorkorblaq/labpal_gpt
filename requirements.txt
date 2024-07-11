@@ -1,0 +1,12 @@
+pypdf
+langchain
+chromadb 
+pytest
+boto3
+openai
+langchain-community
+python-dotenv
+langchain_openai
+unstructured[pdf]
+flask
+flask_restful

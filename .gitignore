@@ -1,3 +1,4 @@
 gptenv/
+endpoints/__pycache__/
 .env
 .dockerignore
