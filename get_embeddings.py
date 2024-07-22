@@ -32,7 +32,10 @@ def get_embedding_function():
 
 
 
-import openai
+from openai import OpenAI
+
+client = OpenAI(api_key=self.api_key,
+api_key=self.api_key)
 from dotenv import load_dotenv, find_dotenv
 import os
 
@@ -43,13 +46,12 @@ api_key = os.getenv("OPENAI_API_KEY")
 class OpenAIEmbeddings:
     def __init__(self, api_key=api_key, model="text-embedding-ada-002"):
         self.api_key = api_key 
-        openai.api_key = self.api_key
         self.model = model
 
     def embed(self, texts):
         # Use the updated OpenAI API for embeddings
-        response = openai.Embedding.create(model=self.model, input=texts)
-        embeddings = [item["embedding"] for item in response["data"]]
+        response = client.embeddings.create(model=self.model, input=texts)
+        embeddings = [item["embedding"] for item in response.data]
         return embeddings
 
     def embed_documents(self, texts):
@@ -64,7 +66,10 @@ def get_embedding_function():
 
 
 
-import openai
+from openai import OpenAI
+
+client = OpenAI(api_key=self.api_key,
+api_key=self.api_key)
 from dotenv import load_dotenv, find_dotenv
 import os
 
@@ -75,13 +80,12 @@ api_key = os.getenv("OPENAI_API_KEY")
 class OpenAIEmbeddings:
     def __init__(self, api_key=api_key, model="text-embedding-ada-002"):
         self.api_key = api_key 
-        openai.api_key = self.api_key
         self.model = model
 
     def embed(self, texts):
         # Use the updated OpenAI API for embeddings
-        response = openai.Embedding.create(model=self.model, input=texts)
-        embeddings = [item["embedding"] for item in response["data"]]
+        response = client.embeddings.create(model=self.model, input=texts)
+        embeddings = [item["embedding"] for item in response.data]
         return embeddings
 
     def embed_documents(self, texts):

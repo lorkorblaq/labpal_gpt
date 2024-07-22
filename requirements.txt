@@ -3,10 +3,13 @@ langchain
 chromadb 
 pytest
 boto3
-openai
+openai-1.36.1
 langchain-community
 python-dotenv
 langchain_openai
 unstructured[pdf]
 flask
 flask_restful
+flask_cors
+gunicorn
+gevent

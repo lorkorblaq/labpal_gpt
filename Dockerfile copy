@@ -1,0 +1,16 @@
+
+
+FROM lorkorblaq/gpt_engine:latest
+
+# Set the working directory to the root directory of the image
+WORKDIR /
+
+# Copy the entire labpal_gpt directory contents to the root directory
+COPY . /
+
+RUN /gptenv/bin/pip install gunicorn 
+EXPOSE 3500
+# # Run app.py when the container launches
+# CMD ["gunicorn", "-w", "2", "-b", "0.0.0.0:3500", "gpt:app"]
+
+CMD ["/gptenv/bin/gunicorn", "-w", "2", "-b", "0.0.0.0:3500", "gpt:app"]
